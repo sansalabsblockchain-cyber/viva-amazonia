@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
         async authorize(credentials, req) {
           if (!credentials?.username || !credentials?.password) return null;
           const { username, password } = credentials;
-          const res = await fetch("https://viva-amazonia-b7d621e98f23.herokuapp.com/auth/login", {
+          const res = await fetch("https://hope-green-api.vercel.app/auth/login", {
             method: "POST",
             body: JSON.stringify({
               username,
