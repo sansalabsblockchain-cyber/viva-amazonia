@@ -1,8 +1,8 @@
 
-
 import { NextAuthOptions } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { authSecret } from "./authSecret";
 
 
 async function refreshToken(token: any): Promise<JWT> {
@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
     pages: {
       signIn: "/sign-in",
     },
-    secret: "secret",
+    secret: authSecret,
     callbacks: {
       async jwt({ token, user }) {
         if (user) return { ...token, ...user };
